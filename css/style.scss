@@ -1,0 +1,121 @@
+@mixin flex($justify, $align, $direction){
+   display: flex;
+   justify-content: $justify;
+   align-items: $align;
+   flex-direction: $direction;
+   flex-wrap: wrap;
+}
+
+$colorWhite: #e5e5e5;
+$colorBlack: #1c1c1c;
+
+
+* {
+   font-family: sans-serif;
+   margin:0;
+   padding:0;
+   box-sizing:border-box;
+}
+
+body{
+   background-color: $colorBlack;
+   color: $colorWhite;
+}
+
+.container{
+   width: 100%;
+   margin-left:30px;
+   margin-right: 30px;
+}
+
+header{
+   @include flex(space-between, center, row);
+   height: 60px;
+
+   .container{
+      @include flex(space-between, center, row);
+   }
+
+   .links{
+      @include flex(space-between, center, row);
+   }
+
+   h1 a{
+      text-decoration: none;
+      color: #e91919;
+   }
+
+   nav a{
+      font-size: 14px;
+      text-decoration: none;
+      color: $colorWhite;
+      margin-left: 15px;
+      cursor: pointer;
+
+      &:hover{
+         color:#AAA;
+      }
+   }
+
+   i{
+      margin-left:15px;
+      cursor: pointer;
+   }
+}
+
+.filme-principal{
+   font-size: 16px;
+   background: linear-gradient(rgba(0,0,0,.50), rgba(0,0,0,.50) 100%), url('/img/capa-titans.jpg');
+   background-size: cover;
+   height: 500px;
+   
+   @include flex(center, flex-start, column);
+
+   .container{
+      width: 70%;
+      margin-right: 0;
+   }
+
+   .descricao{
+      margin-top: 10px;
+      margin-bottom: 40px;
+   }
+
+   h3{
+      margin-top: 15%;
+      font-size: 40px;
+   }
+
+   button{
+      background-color: rgba(0,0,0,.50);
+      border:none;
+      border-radius: 3px;
+      color: $colorWhite;
+      padding: 15px 30px;
+      margin-right: 15px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: .5s ease all;
+
+      &:hover{
+         background-color: $colorWhite;
+         color: $colorBlack;
+      }
+
+      i{
+         margin-right: 8px;
+      }
+   }
+}
+
+.box-filme{
+   height: 100%;
+   width: 100%;
+   display: block;
+}
+
+.carrosel-filmes{
+   margin-top: 5px
+}
+
+@import './responsive.scss';
